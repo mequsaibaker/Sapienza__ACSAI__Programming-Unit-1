@@ -28,6 +28,7 @@ def readMatrix(source_file_path):
   for line in file_ref:
     row = (line.strip()).split(' ')
     matrix.append(row)
+  file_ref.close()
   return matrix
 
 
@@ -41,6 +42,16 @@ def transposeMatrix(matrix: list[list[str]]):
   return transposed_m
 
 
+def writeMatrix(matrix: list[list[str]], destination_file_path):
+  file_ref = open(destination_file_path, 'w', encoding="utf8")
+  for row in range(len(matrix)):
+    for value in matrix[row]:
+      file_ref.write(value + ' ')
+    file_ref.write('\n')
+  file_ref.close()
+  return None
+
+
 def TransposeMatrixFromFile(source_file_path, destination_file_path):
   # your code goes here
   pass
@@ -48,6 +59,5 @@ def TransposeMatrixFromFile(source_file_path, destination_file_path):
 
 if __name__ == "__main__":
   print(readMatrix("original_matrix.txt"))
-  print(initializeEmptyMatrix(5))
   print(transposeMatrix(readMatrix("original_matrix.txt")))
   TransposeMatrixFromFile("original_matrix.txt", "transposed_file_path")
