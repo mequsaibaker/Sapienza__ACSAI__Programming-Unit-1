@@ -45,8 +45,10 @@ def transposeMatrix(matrix: list[list[str]]):
 def writeMatrix(matrix: list[list[str]], destination_file_path):
   file_ref = open(destination_file_path, 'w', encoding="utf8")
   for row in range(len(matrix)):
-    for value in matrix[row]:
-      file_ref.write(value + ' ')
+    for ind, value in enumerate(matrix[row]):
+      file_ref.write(value)
+      if ind < len(matrix[row]) - 1:
+        file_ref.write(' ')
     file_ref.write('\n')
   file_ref.close()
   return None
