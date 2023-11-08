@@ -54,7 +54,10 @@ def writeMatrix(matrix: list[list[str]], destination_file_path):
 
 def TransposeMatrixFromFile(source_file_path, destination_file_path):
   # your code goes here
-  pass
+  matrix = readMatrix(source_file_path)
+  transposed_m = transposeMatrix(matrix)
+  writeMatrix(transposed_m, destination_file_path)
+  return None
 
 
 if __name__ == "__main__":
