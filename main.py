@@ -16,6 +16,11 @@ def readTextInFile(filepath):
   return txt
 
 
+def removeNewLines(txt):
+  txt.replace('\n', '')
+  return None
+
+
 def LongestWordInFile(filepath):
   # your code goes here
   pass
