@@ -38,17 +38,16 @@ def LookAndSay(n, k):
   num_str = str(n)
   for iteration in range(k):
     num_str_len = len(num_str)
-    num_str = ''
+    new_num_str = ''
     ind = 0
     while ind < num_str_len:
       current_char = num_str[ind]
-      num_count = 1
-      while num_str[ind + num_count] == current_char:
-        num_count += 1
-      num_str += current_char * num_count
+      num_count = countCharRepeatFromInd(ind, num_str, current_char)
+      new_num_str += str(num_count) + current_char
+      ind += num_count
     num_list.append(num_str)
-    ind += num_count
-  pass
+    num_str = new_num_str
+  return num_list
 
 
 if __name__ == "__main__":
