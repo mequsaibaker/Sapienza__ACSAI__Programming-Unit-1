@@ -31,13 +31,6 @@ def readMatrix(source_file_path):
   return matrix
 
 
-def initializeEmptyMatrix(rows: int):
-  matrix = []
-  for row in range(rows):
-    matrix.append([])
-  return matrix
-
-
 def transposeMatrix(matrix: list[list[str]]):
   transposed_m = []
   for row in range(len(matrix[0])):
