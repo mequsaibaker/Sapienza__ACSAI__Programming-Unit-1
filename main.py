@@ -13,6 +13,7 @@ the function will return 13, as the longest word is "entertainment".
 def readTextInFile(filepath):
   file_ref = open(filepath, 'r', encoding='utf8')
   txt = file_ref.read()
+  file_ref.close()
   return txt
 
 
