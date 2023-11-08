@@ -17,7 +17,7 @@ def readTextInFile(filepath):
 
 
 def removeNewLines(txt):
-  return txt.replace("\n", "Hi")
+  return txt.replace("\n", "")
 
 
 def LongestWordInFile(filepath):
@@ -31,19 +31,17 @@ def LongestWordInFile(filepath):
 
   counter = 0
   while counter < txt_len:
-    if first_char_ind.isalpha():
+    if txt[counter].isalpha():
       first_char_ind = counter
-      for ind in range(counter, txt_len):
-        last_char_ind = counter + ind
+      for ind in range(first_char_ind, txt_len):
+        last_char_ind = ind
         if not txt[last_char_ind].isalpha():
-          counter += last_char_ind
+          counter = last_char_ind
           break
-      max_word_len = max(max_word_len, last_char_ind - first_char_ind)
-  pass
+      max_word_len = max(max_word_len, (last_char_ind - first_char_ind))
+    counter += 1
+  return max_word_len
 
 
 if __name__ == "__main__":
-  txt = readTextInFile("testfile.txt")
-  txt2 = txt.replace("\n", "Hi")
-  print(txt2)
   print(LongestWordInFile("testfile.txt"))
