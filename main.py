@@ -21,10 +21,20 @@ after running the function, the contents of 'transposed_matrix.txt' should be as
 note: the matrix can be stored in a list of lists; a list of lists is a list in which the items are lists; so, each item in the list is one row of the matrix, and each item in each sublist is one of the values of the matrix.
 '''
 
+
+def readMatrix(source_file_path):
+  matrix = []
+  file_ref = open(source_file_path, 'r', encoding="utf8")
+  for line in file_ref:
+    row = (line.strip()).split(' ')
+    matrix.append(row)
+  return matrix
+
+
 def TransposeMatrixFromFile(source_file_path, destination_file_path):
-    # your code goes here
-    pass
+  # your code goes here
+  pass
 
 
-if __name__ =="__main__":
-    TransposeMatrixFromFile("original_matrix.txt", "transposed_file_path")
+if __name__ == "__main__":
+  TransposeMatrixFromFile("original_matrix.txt", "transposed_file_path")
