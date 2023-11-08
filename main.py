@@ -21,7 +21,13 @@ rotated matrix:
 
 def RotateMatrix(matrix):
   # your code goes here
-  
+  rotated_m = []
+  for r in range(len(matrix)):
+    new_row = []
+    for c in range(len(matrix[r]) - 1, -1, -1):
+      new_row.append(matrix[c][r])
+    rotated_m.append(new_row)
+  return rotated_m
 
 
 if __name__ == "__main__":
