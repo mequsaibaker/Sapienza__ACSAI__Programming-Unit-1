@@ -39,12 +39,13 @@ def initializeEmptyMatrix(rows: int):
 
 
 def transposeMatrix(matrix: list[list[str]]):
-  transposed_m = initializeEmptyMatrix(len(matrix[0]))
-  for row in matrix:
-    for num in row:
-      pass
-    pass
-  pass
+  transposed_m = []
+  for row in range(len(matrix[0])):
+    new_row = []
+    for col in range(len(matrix)):
+      new_row.append(matrix[col][row])
+    transposed_m.append(new_row)
+  return transposed_m
 
 
 def TransposeMatrixFromFile(source_file_path, destination_file_path):
@@ -55,4 +56,5 @@ def TransposeMatrixFromFile(source_file_path, destination_file_path):
 if __name__ == "__main__":
   print(readMatrix("original_matrix.txt"))
   print(initializeEmptyMatrix(5))
+  print(transposeMatrix(readMatrix("original_matrix.txt")))
   TransposeMatrixFromFile("original_matrix.txt", "transposed_file_path")
