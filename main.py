@@ -31,10 +31,28 @@ def readMatrix(source_file_path):
   return matrix
 
 
+def initializeEmptyMatrix(rows: int):
+  matrix = []
+  for row in range(rows):
+    matrix.append([])
+  return matrix
+
+
+def transposeMatrix(matrix: list[list[str]]):
+  transposed_m = initializeEmptyMatrix(len(matrix[0]))
+  for row in matrix:
+    for num in row:
+      pass
+    pass
+  pass
+
+
 def TransposeMatrixFromFile(source_file_path, destination_file_path):
   # your code goes here
   pass
 
 
 if __name__ == "__main__":
+  print(readMatrix("original_matrix.txt"))
+  print(initializeEmptyMatrix(5))
   TransposeMatrixFromFile("original_matrix.txt", "transposed_file_path")
