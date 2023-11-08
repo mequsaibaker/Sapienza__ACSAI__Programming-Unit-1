@@ -36,7 +36,7 @@ def LookAndSay(n, k):
   # your code goes here
   num_list = []
   num_str = str(n)
-  for iteration in range(k):
+  for iteration in range(k+1):
     num_str_len = len(num_str)
     new_num_str = ''
     ind = 0
