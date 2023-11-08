@@ -25,6 +25,19 @@
 
 def LookAndSay(n, k):
   # your code goes here
+  num_list = []
+  num_str = str(n)
+  for iteration in range(k):
+    num_str_len = len(num_str)
+    num_str = ''
+    ind = 0
+    while ind < num_str_len:
+      current_char = num_str[ind]
+      num_count = 1
+      while num_str[ind + num_count] == current_char:
+        num_count += 1
+      num_str += current_char * num_count
+    num_list.append(num_str)
   pass
 
 
