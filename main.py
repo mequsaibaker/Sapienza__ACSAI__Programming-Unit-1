@@ -36,7 +36,7 @@ def LookAndSay(n, k):
   # your code goes here
   num_list = []
   num_str = str(n)
-  for iteration in range(k+1):
+  for iteration in range(k + 1):
     num_str_len = len(num_str)
     new_num_str = ''
     ind = 0
@@ -51,5 +51,4 @@ def LookAndSay(n, k):
 
 
 if __name__ == "__main__":
-  print(countCharRepeatFromInd(7, 'hhhiijji', 'i'))
   print(LookAndSay(1, 8))
