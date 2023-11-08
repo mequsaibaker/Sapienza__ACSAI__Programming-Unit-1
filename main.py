@@ -23,6 +23,15 @@
 # "312211", "13112221", "1113213211", "31131211131221"]
 
 
+def countCharRepeatFromInd(curr_ind, string, char):
+  char_count = 0
+  str_len = len(string)
+  while curr_ind + char_count < str_len and string[curr_ind +
+                                                   char_count] == char:
+    char_count += 1
+  return char_count
+
+
 def LookAndSay(n, k):
   # your code goes here
   num_list = []
@@ -38,8 +47,10 @@ def LookAndSay(n, k):
         num_count += 1
       num_str += current_char * num_count
     num_list.append(num_str)
+    ind += num_count
   pass
 
 
 if __name__ == "__main__":
+  print(countCharRepeatFromInd(7, 'hhhiijji', 'i'))
   print(LookAndSay(1, 8))
