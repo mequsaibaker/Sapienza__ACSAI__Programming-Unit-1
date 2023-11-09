@@ -45,6 +45,19 @@
 # brs - the list of breeds (['DOG', 'CAT', 'BAT', ...])
 # epy - a dictionary containing the number of events per year ({1985: 1, 2009: 14, ...})
 
+def findColCSV(col_num: int, line: str) -> (start_ind, end_ind):
+  start_ind = 0
+  end_ind = line.find(',')
+  for col_ind in range(col_num):
+    start_ind = end_ind
+    end_ind = line.find(',', start_ind + 1)
+  return start_ind, end_ind
+
+def totalNumAnimalBite(species:str, file_path):
+  file_r = open(file_path, 'r', encoding='utf8')
+  for line in file_r:
+    
+  file_r.close()
 
 def AnimalBites(dbFile):
   # your code goes here
