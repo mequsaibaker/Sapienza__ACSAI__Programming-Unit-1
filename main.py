@@ -45,7 +45,8 @@
 # brs - the list of breeds (['DOG', 'CAT', 'BAT', ...])
 # epy - a dictionary containing the number of events per year ({1985: 1, 2009: 14, ...})
 
-def findColCSV(col_num: int, line: str) -> (start_ind, end_ind):
+
+def findColCSV(col_num: int, line: str) -> (int, int):
   start_ind = 0
   end_ind = line.find(',')
   for col_ind in range(col_num):
@@ -53,11 +54,14 @@ def findColCSV(col_num: int, line: str) -> (start_ind, end_ind):
     end_ind = line.find(',', start_ind + 1)
   return start_ind, end_ind
 
-def totalNumAnimalBite(species:str, file_path):
+
+def totalNumAnimalBite(species: str, file_path):
   file_r = open(file_path, 'r', encoding='utf8')
   for line in file_r:
-    
+    pass
   file_r.close()
+  pass
+
 
 def AnimalBites(dbFile):
   # your code goes here
@@ -65,4 +69,9 @@ def AnimalBites(dbFile):
 
 
 if __name__ == "__main__":
+  str_line = '1985-05-05 00:00:00,DOG,,FEMALE,LIG. BROWN,1,1985-06-20 00:00:00,40229,NO,BODY,1985-05-05 00:00:00,UNKNOWN,,,UNKNOWN'
+  col_num = 4
+  start, end = findColCSV(col_num, str_line)
+  print(start, end)
+  print(str_line[start:end].replace(',', ''))
   print(AnimalBites("Health_AnimalBites.csv"))
