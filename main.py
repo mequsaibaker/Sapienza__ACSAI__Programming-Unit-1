@@ -79,4 +79,5 @@ if __name__ == "__main__":
   start, end = findColCSV(col_num, str_line)
   print(start, end)
   print(str_line[start:end].replace(',', ''))
+  print(getColData(col_num, str_line))
   print(AnimalBites("Health_AnimalBites.csv"))
