@@ -60,12 +60,15 @@ def getColData(col_num: int, line: str) -> str:
   return line[start:end].replace(',', '')
 
 
-def totalNumAnimalBite(species: str, file_path):
+#species field number is 1
+def totalNumSpeciesBite(species: str, file_path):
   file_r = open(file_path, 'r', encoding='utf8')
+  species_bites_count = 0
   for line in file_r:
-    pass
+    if getColData(1, line) == 'CAT':
+      species_bites_count += 1
   file_r.close()
-  pass
+  return species_bites_count
 
 
 def AnimalBites(dbFile):
