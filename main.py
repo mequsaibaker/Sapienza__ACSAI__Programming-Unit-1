@@ -91,9 +91,9 @@ def countEventsPerYear(file_path):
   year_dict = {}
   for line in file_r:
     year = extractYear(getColData(0, line))
-    if year != '' and year != 'bite_date':
+    if year != '' and year != 'bite':
       if year not in year_dict.keys():
-        year_dict[year] = 0
+        year_dict[year] = 1
       else:
         year_dict[year] += 1
   file_r.close()
@@ -115,4 +115,5 @@ if __name__ == "__main__":
   print(totalNumSpeciesBite('CAT', "Health_AnimalBites.csv"))
   print(findSpeciesList("Health_AnimalBites.csv"))
   print(extractYear('1985-06-20 00:00:00'))
+  print(countEventsPerYear("Health_AnimalBites.csv"))
   print(AnimalBites("Health_AnimalBites.csv"))
