@@ -55,6 +55,11 @@ def findColCSV(col_num: int, line: str) -> (int, int):
   return start_ind, end_ind
 
 
+def getColData(col_num: int, line: str) -> str:
+  start, end = findColCSV(col_num, line)
+  return line[start:end].replace(',', '')
+
+
 def totalNumAnimalBite(species: str, file_path):
   file_r = open(file_path, 'r', encoding='utf8')
   for line in file_r:
