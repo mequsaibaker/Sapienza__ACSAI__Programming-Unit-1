@@ -125,6 +125,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "git-python"
+version = "1.1.1"
+description = "combination and simplification of some useful git commands"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -478,7 +486,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "f328c469a46d9cb95c79b10c69318f07ccca3f40cc6eb43ef51c87ad2ff1879b"
+content-hash = "2236c5448974f00a2a0818e6ee49e34bd303cc25fe4a4c96cde9710f6c66e490"
 
 [metadata.files]
 aiohttp = []
@@ -492,6 +500,7 @@ colorama = []
 debugpy = []
 flask = []
 frozenlist = []
+git-python = []
 idna = []
 importlib-metadata = []
 itsdangerous = []

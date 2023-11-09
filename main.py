@@ -110,14 +110,4 @@ def AnimalBites(dbFile):
 
 
 if __name__ == "__main__":
-  str_line = '1985-05-05 00:00:00,DOG,,FEMALE,LIG. BROWN,1,1985-06-20 00:00:00,40229,NO,BODY,1985-05-05 00:00:00,UNKNOWN,,,UNKNOWN'
-  col_num = 4
-  start, end = findColCSV(col_num, str_line)
-  print(start, end)
-  print(str_line[start:end].replace(',', ''))
-  print(getColData(col_num, str_line))
-  print(totalNumSpeciesBite('CAT', "Health_AnimalBites.csv"))
-  print(findSpeciesList("Health_AnimalBites.csv"))
-  print(extractYear('1985-06-20 00:00:00'))
-  print(countEventsPerYear("Health_AnimalBites.csv"))
   print(AnimalBites("Health_AnimalBites.csv"))
