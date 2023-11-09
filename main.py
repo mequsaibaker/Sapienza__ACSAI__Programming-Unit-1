@@ -65,7 +65,7 @@ def totalNumSpeciesBite(species: str, file_path):
   file_r = open(file_path, 'r', encoding='utf8')
   species_bites_count = 0
   for line in file_r:
-    if getColData(1, line) == 'CAT':
+    if getColData(1, line) == species:
       species_bites_count += 1
   file_r.close()
   return species_bites_count
@@ -83,4 +83,5 @@ if __name__ == "__main__":
   print(start, end)
   print(str_line[start:end].replace(',', ''))
   print(getColData(col_num, str_line))
+  print(totalNumSpeciesBite('CAT', "Health_AnimalBites.csv"))
   print(AnimalBites("Health_AnimalBites.csv"))
