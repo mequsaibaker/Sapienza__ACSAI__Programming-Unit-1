@@ -100,4 +100,5 @@ if __name__ == "__main__":
   print(getColData(col_num, str_line))
   print(totalNumSpeciesBite('CAT', "Health_AnimalBites.csv"))
   print(findSpeciesList("Health_AnimalBites.csv"))
+  print(extractYear('1985-06-20 00:00:00'))
   print(AnimalBites("Health_AnimalBites.csv"))
