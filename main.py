@@ -71,6 +71,16 @@ def totalNumSpeciesBite(species: str, file_path):
   return species_bites_count
 
 
+def findSpeciesList(file_path):
+  file_r = open(file_path, 'r', encoding='utf8')
+  species_list = []
+  for line in file_r:
+    species = getColData(1, line)
+    if species not in species_list:
+      species_list.append(species)
+  return species_list
+
+
 def AnimalBites(dbFile):
   # your code goes here
   pass
