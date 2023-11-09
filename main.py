@@ -76,8 +76,9 @@ def findSpeciesList(file_path):
   species_list = []
   for line in file_r:
     species = getColData(1, line)
-    if species not in species_list:
+    if species not in species_list and species != '' and species != 'SpeciesIDDesc':
       species_list.append(species)
+  file_r.close()
   return species_list
 
 
@@ -94,4 +95,5 @@ if __name__ == "__main__":
   print(str_line[start:end].replace(',', ''))
   print(getColData(col_num, str_line))
   print(totalNumSpeciesBite('CAT', "Health_AnimalBites.csv"))
+  print(findSpeciesList("Health_AnimalBites.csv"))
   print(AnimalBites("Health_AnimalBites.csv"))
