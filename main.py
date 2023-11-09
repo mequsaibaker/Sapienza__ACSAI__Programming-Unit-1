@@ -82,6 +82,10 @@ def findSpeciesList(file_path):
   return species_list
 
 
+def extractYear(str_date):
+  return str_date[0:4]
+
+
 def AnimalBites(dbFile):
   # your code goes here
   pass
