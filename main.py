@@ -86,6 +86,20 @@ def extractYear(str_date):
   return str_date[0:4]
 
 
+def countEventsPerYear(file_path):
+  file_r = open(file_path, 'r', encoding='utf8')
+  year_dict = {}
+  for line in file_r:
+    year = extractYear(getColData(0, line))
+    if year != '' and year != 'bite_date':
+      if year not in year_dict.keys():
+        year_dict[year] = 0
+      else:
+        year_dict[year] += 1
+  file_r.close()
+  return year_dict
+
+
 def AnimalBites(dbFile):
   # your code goes here
   pass
