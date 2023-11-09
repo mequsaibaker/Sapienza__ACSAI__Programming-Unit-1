@@ -86,6 +86,7 @@ def extractYear(str_date):
   return str_date[0:4]
 
 
+#date field number is 0
 def countEventsPerYear(file_path):
   file_r = open(file_path, 'r', encoding='utf8')
   year_dict = {}
@@ -102,7 +103,10 @@ def countEventsPerYear(file_path):
 
 def AnimalBites(dbFile):
   # your code goes here
-  pass
+  cbe = totalNumSpeciesBite('CAT', dbFile)
+  brs = findSpeciesList(dbFile)
+  epy = countEventsPerYear(dbFile)
+  return cbe, brs, epy
 
 
 if __name__ == "__main__":
