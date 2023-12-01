@@ -20,8 +20,8 @@ def findCenter(img):
 def DrawCircle(image : list, radius : int):
   red = (255, 0, 0)
   x1, y1 = findCenter(image)
-  for y2 in len(image):
-    for x2 in len(image[0]):
+  for y2 in image:
+    for x2 in image[y2]:
       dis = findDistance(x1,y1,x2,y2)
       if isInsideCircle(dis, radius):
         image[y2][x2] = red
