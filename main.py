@@ -16,11 +16,11 @@ print(sorted(l, key=key_strings1))  # <- change this to sort with the new key
 # the second element, then the first and finally the third
 # [(1,5,6), (3,4,9), (1,1,1)] -> [(1,1,1), (3,4,9), (1,5,6)]
 def key_tuples(x):
-  pass
+  return x[1], x[0], x[2]
 
 
 l = [(1, 5, 6), (3, 4, 9), (1, 1, 1)]
-sorted(l)  # <- change this to sort with the new key
+print(sorted(l, key=key_tuples))  # <- change this to sort with the new key
 
 
 # To order a list of strings considering the number of characters in increasing order,
