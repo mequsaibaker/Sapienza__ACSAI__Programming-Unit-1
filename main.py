@@ -52,4 +52,4 @@ def averages_in_file(input_file, output_file):
   return num_avg_list
 
 
-print(averages_in_file('test01.txt', '1'))
+print(averages_in_file('test01.txt', 'test01.out'))
