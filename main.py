@@ -12,13 +12,14 @@ def LongestLine(path_to_a_gray_image):
   len_list = []
   for y in range(len(img)):
     row_ind = 0
-    while row_ind < len(img[y]) - 1:
+    while row_ind < len(img[y]):
       cur_rbg = img[y][row_ind]
       line_len = 1
-      while cur_rbg != (0, 0, 0) and cur_rbg == img[y][row_ind + 1]:
+      while cur_rbg != (0, 0, 0) and row_ind + 1 < len(
+          img[y]) and img[y][row_ind + 1] == cur_rbg:
         line_len += 1
         row_ind += 1
-      if line_len > 1:
+      if cur_rbg != (0, 0, 0):
         len_list.append((cur_rbg, line_len))
       row_ind += 1
   return len_list
@@ -26,3 +27,4 @@ def LongestLine(path_to_a_gray_image):
 
 if __name__ == "__main__":
   LongestLine("a grayscale image.png")
+  print(LongestLine("a grayscale image.png"))
