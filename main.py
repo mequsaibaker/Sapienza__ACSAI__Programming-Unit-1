@@ -28,17 +28,21 @@ def find_average(lines):
     num_sum = 0
     num_count = 0
     num_list = line.strip().split(' ')
-    print(num_list)
-    print(num_count)
     for value in num_list:
       if value != '':
         num_sum += float(value.strip())
         num_count += 1
-        print(num_count)
     num_avg = num_sum / num_count
     num_avg_list.append(num_avg)
   return num_avg_list
 
+
+def writer(num_avg_list, output_file):
+  file_ref = open(output_file, 'w', encoding='utf8')
+  for value in num_avg_list:
+    print(value, file_ref)
+  file_ref.close()
+  return None
 
 def averages_in_file(input_file, output_file):
   lines = reader(input_file)
