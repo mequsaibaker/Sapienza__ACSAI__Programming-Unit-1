@@ -25,10 +25,15 @@
 import pngmatrix
 
 def f1_LoadMario(filename: str) -> list:
-  pass
+  img = pngmatrix.load_png8(filename)
+  return img
 
 def f2_ComputeLuigi(Mario: list) -> list:
-  pass
+  for y in range(len(Mario)):
+    for x in range(len(Mario[y])):
+      if Mario[y][x] == (227, 6, 19):
+        Mario[y][x] = (0, 191, 99)
+  return Mario
 
 def f3_MirrorLuigi(Luigi: list) -> None:
   pass
