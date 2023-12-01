@@ -4,11 +4,25 @@ write a function that is provided as input the path to a grayscale image; the fu
 
 import pngmatrix
 
+
 def LongestLine(path_to_a_gray_image):
   # your code goes here
-  pass
-    
+  img = pngmatrix.load_png8(path_to_a_gray_image)
+
+  len_list = []
+  for y in range(len(img)):
+    row_ind = 0
+    while row_ind < len(img[y]) - 1:
+      cur_rbg = img[y][row_ind]
+      line_len = 1
+      while cur_rbg != (0, 0, 0) and cur_rbg == img[y][row_ind + 1]:
+        line_len += 1
+        row_ind += 1
+      if line_len > 1:
+        len_list.append((cur_rbg, line_len))
+      row_ind += 1
+  return len_list
+
 
 if __name__ == "__main__":
   LongestLine("a grayscale image.png")
-
