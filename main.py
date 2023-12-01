@@ -43,11 +43,22 @@ def f2_ComputeLuigi(Mario: list) -> list:
 
 
 def f3_MirrorLuigi(Luigi: list) -> None:
+  half_index = len(Luigi[0]) // 2
+  for y in range(len(Luigi)):
+    for x in range(half_index):
+      first_x = x
+      second_x = len(Luigi[0]) - 1 - x
+      temp = Luigi[y][first_x]
+      Luigi[y][first_x] = Luigi[y][second_x]
+      Luigi[y][second_x] = temp
   pass
 
 
 def f4_GlueMarioAndLuigi(Mario: list, Luigi: list) -> list:
-  pass
+  final_img = []
+  for y in range(len(Mario)):
+    final_img.append(Mario[y] + Luigi[y])
+  return final_img
 
 
 def f5_DrawMarioAndLuigi(Mario: list, Luigi: list, bg_filename: str) -> list:
