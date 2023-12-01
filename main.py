@@ -79,6 +79,15 @@ def f5_DrawMarioAndLuigi(Mario: list, Luigi: list, bg_filename: str) -> list:
 
 
 def f6_RotateLuigi(Luigi: list) -> None:
+  Luigi_rotated = []
+  for x in range(len(Luigi[0])):
+    temp_row = []
+    for y in range(len(Luigi)):
+      temp_row.append(Luigi[y][x])
+    Luigi_rotated.append(temp_row[::-1])
+  Luigi.clear()
+  for row in Luigi_rotated:
+    Luigi.append(row)
   pass
 
 
@@ -90,6 +99,6 @@ if __name__ == "__main__":
   pngmatrix.save_png8(L, "Luigi_mirrored.png")
   M2 = f4_GlueMarioAndLuigi(M, L)
   pngmatrix.save_png8(M2, "MarioLuigi_glued.png")
-  # f5_DrawMarioAndLuigi(M, L, "background.png")
-  # f6_RotateLuigi(L)
-  # pngmatrix.save_png8(L, "Luigi_rotated.png")
+  f5_DrawMarioAndLuigi(M, L, "background.png")
+  f6_RotateLuigi(L)
+  pngmatrix.save_png8(L, "Luigi_rotated.png")
