@@ -40,13 +40,15 @@ def find_average(lines):
 def writer(num_avg_list, output_file):
   file_ref = open(output_file, 'w', encoding='utf8')
   for value in num_avg_list:
-    print(value, file_ref)
+    print(value, file=file_ref)
   file_ref.close()
   return None
+
 
 def averages_in_file(input_file, output_file):
   lines = reader(input_file)
   num_avg_list = find_average(lines)
+  writer(num_avg_list, output_file)
   return num_avg_list
 
 
