@@ -28,11 +28,11 @@ print(sorted(l, key=key_tuples))  # <- change this to sort with the new key
 #
 # ['snake', 'caterpillar', 'rat', 'bat', 'dog'] -> ['dog', 'bat', 'rat', 'snake', 'caterpillar']
 def key_strings(x):
-  pass
+  return len(x), x[-1], x
 
 
 l = ['snake', 'caterpillar', 'rat', 'bat', 'dog']
-sorted(l)  # <- change this to sort with the new key
+print(sorted(l, key=key_strings))  # <- change this to sort with the new key
 
 
 #To order a list of strings considering the number of vowels in decreasing order,
