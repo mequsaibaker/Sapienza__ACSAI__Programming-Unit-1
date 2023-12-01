@@ -33,23 +33,24 @@ def find_average(lines):
         num_sum += float(value.strip())
         num_count += 1
     num_avg = num_sum / num_count
+    if num_avg == 0.0:
+      num_avg = 0
     num_avg_list.append(num_avg)
   return num_avg_list
 
 
 def writer(num_avg_list, output_file):
   file_ref = open(output_file, 'w', encoding='utf8')
-  for value in num_avg_list:
-    print(value, file=file_ref)
+  for ind, value in enumerate(num_avg_list):
+    file_ref.write(str(value))
+    if ind != len(num_avg_list) - 1:
+      file_ref.write('\n')
   file_ref.close()
-  return None
+  return max(num_avg_list)
 
 
 def averages_in_file(input_file, output_file):
   lines = reader(input_file)
   num_avg_list = find_average(lines)
-  writer(num_avg_list, output_file)
-  return num_avg_list
-
-
-print(averages_in_file('test01.txt', 'test01.out'))
+  last_avg = writer(num_avg_list, output_file)
+  return last_avg
