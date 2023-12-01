@@ -27,7 +27,8 @@ def find_average(lines):
   for line in lines:
     num_sum = 0
     num_count = 0
-    num_list = line.strip().split(' ')
+    num_list = line.strip().split()
+    print(num_list)
     for value in num_list:
       if value != '':
         num_sum += float(value.strip())
