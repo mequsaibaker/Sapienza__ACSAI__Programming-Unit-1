@@ -62,7 +62,20 @@ def f4_GlueMarioAndLuigi(Mario: list, Luigi: list) -> list:
 
 
 def f5_DrawMarioAndLuigi(Mario: list, Luigi: list, bg_filename: str) -> list:
-  pass
+  start_x_Mario = 96
+  start_y_Mario = 146
+  start_x_Luigi = 154
+  start_y_Luigi = 96
+  bg_img = pngmatrix.load_png8(bg_filename)
+  for y in range(len(Mario)):
+    for x in range(len(Mario[y])):
+      bg_img[start_y_Mario + y][start_x_Mario + x] = Mario[y][x]
+  for y in range(len(Luigi)):
+    for x in range(len(Luigi[y])):
+      bg_img[start_y_Luigi + y][start_x_Luigi + x] = Luigi[y][x]
+
+  pngmatrix.save_png8(bg_img, 'background_new.png')
+  return bg_img
 
 
 def f6_RotateLuigi(Luigi: list) -> None:
@@ -72,11 +85,11 @@ def f6_RotateLuigi(Luigi: list) -> None:
 if __name__ == "__main__":
   M = f1_LoadMario("Mario.png")
   print(M)
-  # L = f2_ComputeLuigi(M)
-  # f3_MirrorLuigi(L)
-  # pngmatrix.save_png8(L, "Luigi_mirrored.png")
-  # M2 = f4_GlueMarioAndLuigi(M, L)
-  # pngmatrix.save_png8(M2, "MarioLuigi_glued.png")
+  L = f2_ComputeLuigi(M)
+  f3_MirrorLuigi(L)
+  pngmatrix.save_png8(L, "Luigi_mirrored.png")
+  M2 = f4_GlueMarioAndLuigi(M, L)
+  pngmatrix.save_png8(M2, "MarioLuigi_glued.png")
   # f5_DrawMarioAndLuigi(M, L, "background.png")
   # f6_RotateLuigi(L)
   # pngmatrix.save_png8(L, "Luigi_rotated.png")
