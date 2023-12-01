@@ -41,11 +41,12 @@ print(sorted(l, key=key_strings))  # <- change this to sort with the new key
 #['pear', 'peach', 'apple', 'banana', 'avocado'] ->
 #['avocado', 'banana', 'pear', 'peach', 'apple']
 def key_vowels(x):
-  pass
+  return -(x.count('a') + x.count('e') + x.count('i') + x.count('o') +
+           x.count('u')), len(x), sorted(x, reverse=True)
 
 
 l = ['pear', 'peach', 'apple', 'banana', 'avocado']
-sorted(l)  # <- change this to sort with the new key
+print(sorted(l, key=key_vowels))  # <- change this to sort with the new key
 
 
 # To order a list of positive integers so that the odd numbers appear before the even numbers
