@@ -5,6 +5,10 @@ write a function that is provided as input the path to a grayscale image; the fu
 import pngmatrix
 
 
+def sortKey(a):
+  return -a[1], -a[0][0]
+
+
 def LongestLine(path_to_a_gray_image):
   # your code goes here
   img = pngmatrix.load_png8(path_to_a_gray_image)
@@ -22,6 +26,7 @@ def LongestLine(path_to_a_gray_image):
       if cur_rbg != (0, 0, 0):
         len_list.append((cur_rbg, line_len))
       row_ind += 1
+  len_list.sort(key=sortKey)
   return len_list
 
 
