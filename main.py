@@ -57,4 +57,4 @@ def key_numbers(x):
 
 
 l = [1, 5, 2, 6, 7, 4, 5, 3, 8]
-print(sorted(l, key=key_numbers))  # <- change this to sort with the new key
+sorted(l, key=key_numbers)  # <- change this to sort with the new key
