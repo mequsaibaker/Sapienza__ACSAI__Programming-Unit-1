@@ -56,7 +56,21 @@ def random_lines(im, h_lines, v_lines):
 # Beware: we should also change the maximum number of lines/cols
 # we can draw
 
+def isVLineFound(img, cur_x, cur_y):
+  down = (min(cur_y + 1, len(img) - 1) != cur_y and img[cur_y + 1][cur_x] != (0,0,0))
+  up = (max(cur_y - 1, 0) != cur_y and img[cur_y - 1][cur_x] != (0,0,0))
+  return down or up
+
+def isHLineFound(img, cur_x, cur_y):
+  right = (min(cur_x + 1, len(img[0]) - 1) != cur_y and img[cur_y][cur_x + 1] != (0,0,0))
+  left = (max(cur_x - 1, 0) != cur_y and img[cur_y][cur_x - 1] != (0,0,0))
+  return right or left
+
+def isIntersected(img, cur_x, cur_y):
+  return isVLineFound(img, cur_x, cur_y) and isHLineFound(img, cur_x, cur_y)
+
 def intersections(image):
 ## Given an image as input, returns the number of pixels that
 ## are intersections of a vertical line with an horizontal line.
 ## Assume that the image has a black background    
+  
