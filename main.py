@@ -60,20 +60,22 @@ def random_lines(im, h_lines, v_lines):
 # Beware: we should also change the maximum number of lines/cols
 # we can draw
 
+import pngmatrix
+
 
 def isVLineFound(img, cur_x, cur_y):
   down = (min(cur_y + 1,
               len(img) - 1) != cur_y and img[cur_y + 1][cur_x] != (0, 0, 0))
   up = (max(cur_y - 1, 0) != cur_y and img[cur_y - 1][cur_x] != (0, 0, 0))
-  return down or up
+  return (down or up) and img[cur_y][cur_x] != (0, 0, 0)
 
 
 def isHLineFound(img, cur_x, cur_y):
   right = (min(cur_x + 1,
-               len(img[0]) - 1) != cur_y and img[cur_y][cur_x + 1] !=
+               len(img[0]) - 1) != cur_x and img[cur_y][cur_x + 1] !=
            (0, 0, 0))
-  left = (max(cur_x - 1, 0) != cur_y and img[cur_y][cur_x - 1] != (0, 0, 0))
-  return right or left
+  left = (max(cur_x - 1, 0) != cur_x and img[cur_y][cur_x - 1] != (0, 0, 0))
+  return (right or left) and img[cur_y][cur_x] != (0, 0, 0)
 
 
 def isIntersected(img, cur_x, cur_y):
@@ -91,5 +93,7 @@ def intersections(img):
         intersections_count += 1
   return intersections_count
 
+
 if __name__ == '__main__':
-  
+  img1 = pngmatrix.load_png8('intersections0.png')
+  print(intersections(img1))
