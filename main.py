@@ -53,10 +53,16 @@ def findDiagonalFactors(diagonal):
 
 def DrawDiagonals(txt_input, width, height, png_output):
   # your code goes here
+  up_count = 0
+  down_count = 0
   img = [[(int(0), int(0), int(0)) for _ in range(width)].copy()
          for _ in range(height)]
   diagonals = readDiagonalData(txt_input)
   for diagonal in diagonals:
+    if diagonal[0] == 'diagonalDOWN':
+      down_count += 1
+    else:
+      up_count += 1
     x_factor, y_factor = findDiagonalFactors(diagonal)
     d_len = int(diagonal[6])
     d_color = (int(diagonal[1]), int(diagonal[2]), int(diagonal[3]))
@@ -65,7 +71,7 @@ def DrawDiagonals(txt_input, width, height, png_output):
     for i in range(d_len):
       img[y_start + i * y_factor][x_start + i * x_factor] = d_color
   pngmatrix.save_png8(img, png_output)
-  pass
+  return up_count + down_count
 
 
 if __name__ == "__main__":
