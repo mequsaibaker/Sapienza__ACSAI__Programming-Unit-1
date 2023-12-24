@@ -12,8 +12,8 @@ import pngmatrix
 
 def DrawVerticalLines(img, x, y, L):
   # your code goes here
-  for row in range(y, min(L, len(img))):
-    img[row][y] = (0, 0, 0)
+  for row in range(y, min(y + L, len(img))):
+    img[row][x] = (255, 255, 255)
   pass
 
 
