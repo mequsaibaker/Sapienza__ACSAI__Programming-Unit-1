@@ -9,8 +9,11 @@ See the folder "examples" for some example outputs.
 
 import pngmatrix
 
+
 def DrawVerticalLines(img, x, y, L):
   # your code goes here
+  for row in range(y, min(L, len(img))):
+    img[row][y] = (0, 0, 0)
   pass
 
 
