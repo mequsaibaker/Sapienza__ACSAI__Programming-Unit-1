@@ -32,11 +32,21 @@ See the example input and output files in the folder "examples":
 
 import pngmatrix
 
+
+def readDiagonalData(txt_input):
+  diagonals = []
+  with open(txt_input, 'r', encoding="utf8") as file_ref:
+    for line in file_ref:
+      diagonals.append(line.split())
+  return diagonals
+
+
 def DrawDiagonals(txt_input, width, height, png_output):
   # your code goes here
   pass
 
 
 if __name__ == "__main__":
-  DrawDiagonals("examples/in_1.txt", 256, 512, "examples/out_1.png")
-  DrawDiagonals("examples/in_2.txt", 640, 480, "examples/out_2.png")
+  #DrawDiagonals("examples/in_1.txt", 256, 512, "examples/out_1.png")
+  #DrawDiagonals("examples/in_2.txt", 640, 480, "examples/out_2.png")
+  print(readDiagonalData("examples/in_1.txt"))
