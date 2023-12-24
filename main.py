@@ -41,6 +41,16 @@ def readDiagonalData(txt_input):
   return diagonals
 
 
+def findDiagonalFactors(diagonal):
+  x_factor = 1
+  y_factor = 0
+  if diagonal[0] == 'diagonalDOWN':
+    y_factor = 1
+  else:
+    y_factor = -1
+  return x_factor, y_factor
+
+
 def DrawDiagonals(txt_input, width, height, png_output):
   # your code goes here
   pass
