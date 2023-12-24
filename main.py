@@ -53,14 +53,15 @@ def findDiagonalFactors(diagonal):
 
 def DrawDiagonals(txt_input, width, height, png_output):
   # your code goes here
-  img = [[(0, 0, 0) for _ in range(width)].copy() for _ in range(height)]
+  img = [[(int(0), int(0), int(0)) for _ in range(width)].copy()
+         for _ in range(height)]
   diagonals = readDiagonalData(txt_input)
   for diagonal in diagonals:
     x_factor, y_factor = findDiagonalFactors(diagonal)
-    d_len = diagonal[6]
-    d_color = (diagonal[1], diagonal[2], diagonal[3])
-    x_start = diagonal[4]
-    y_start = diagonal[5]
+    d_len = int(diagonal[6])
+    d_color = (int(diagonal[1]), int(diagonal[2]), int(diagonal[3]))
+    x_start = int(diagonal[4])
+    y_start = int(diagonal[5])
     for i in range(d_len):
       img[y_start + i * y_factor][x_start + i * x_factor] = d_color
   pngmatrix.save_png8(img, png_output)
@@ -70,4 +71,3 @@ def DrawDiagonals(txt_input, width, height, png_output):
 if __name__ == "__main__":
   DrawDiagonals("examples/in_1.txt", 256, 512, "examples/out_1.png")
   DrawDiagonals("examples/in_2.txt", 640, 480, "examples/out_2.png")
-  print(readDiagonalData("examples/in_1.txt"))
