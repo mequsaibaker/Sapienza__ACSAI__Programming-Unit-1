@@ -6,10 +6,18 @@
 
 from rtrace import trace
 
+
 # decorator to print the stack trace of recurvive calls
 @trace
 def PalindromeRecursive(word):
   # your code goes here
+  if len(word) in (0, 2):
+    return True
+  else:
+    if word[0] == word[-1]:
+      N = PalindromeRecursive(word[1:-1])
+    else:
+      return False
   pass
 
 
