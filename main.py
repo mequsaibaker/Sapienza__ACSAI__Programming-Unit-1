@@ -16,6 +16,7 @@ def PalindromeRecursive(word):
   else:
     if word[0] == word[-1]:
       N = PalindromeRecursive(word[1:-1])
+      return N and True
     else:
       return False
   pass
