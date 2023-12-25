@@ -10,12 +10,27 @@ import pngmatrix
 
 def FindLineStartEnd(single_row):
   # your code goes here
+  start = None
+  end = None
+  if end != None or len(single_row) == 0:
+    return None, None
+  else:
+    if single_row[0] != (0, 0, 0):
+      end = FindLineStartEnd(single_row[1:])
+      if start is None:
+        start = single_row[0]
+      return end + 1
   pass
 
 
 def LongestLine(path_to_a_gray_image):
   # your code goes here
-  pass
+  max_len = 0
+  img = pngmatrix.load_png8(path_to_a_gray_image)
+  for row in img:
+    start, end = FindLineStartEnd(row)
+    max_len = max(max_len, end - start)
+  return max_len
 
 
 if __name__ == "__main__":
