@@ -33,11 +33,9 @@ def LongestLine(path_to_a_gray_image):
   img = pngmatrix.load_png8(path_to_a_gray_image)
   for row in img:
     x_start, x_end, start_flag, end_flag = FindLineStartEnd(row)
-    # print(start, ' ', end)
     max_len = max(max_len, x_end - x_start)
   return max_len
 
 
 if __name__ == "__main__":
   print(LongestLine("a grayscale image.png"))
-  # print(FindLineStartEnd([1, (0, 0, 0), 2, 3, 4, 5, 6, 7]))
