@@ -11,7 +11,7 @@ from rtrace import trace
 @trace
 def PalindromeRecursive(word):
   # your code goes here
-  if len(word) in (0, 2):
+  if len(word) in (0, 1):
     return True
   else:
     if word[0] == word[-1]:
