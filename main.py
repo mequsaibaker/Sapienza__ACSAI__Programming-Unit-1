@@ -18,15 +18,23 @@ the function ScanFolder("a") returns the list:
 '''
 
 # you can only use the following imports:
-from os import scandir
+from os import path, scandir
 from os.path import isdir
 from os.path import basename
 
 
 def ScanFolder(folder_path):
   # your code goes here
-  pass
+  result = (basename(folder_path), [])
+  obj = scandir(folder_path)
+  for item in obj:
+    path = folder_path + '/' + item.name
+    if not isdir(path):
+      result[1].append(item.name)
+    else:
+      result[1].append(ScanFolder(path))
+  return result
 
 
 if __name__ == "__main__":
-  ScanFolder("a")
+  print(ScanFolder("a"))
