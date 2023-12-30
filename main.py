@@ -39,5 +39,6 @@ def fill_bucket(im, row, col, color):
 
 
 if __name__ == '__main__':
-  img = [[(0, 0, 0)] * 64 for _ in range(64)]
-  draw_random_squares(img, 5)
+  img = [[(0, 0, 0)] * 120 for _ in range(120)]
+  draw_random_squares(img, 20)
+  pngmatrix.save_png8(img, 'out1.png')
