@@ -37,6 +37,4 @@ def ScanFolder(folder_path):
 
 
 if __name__ == "__main__":
-  # ScanFolder("a")
-  print(ScanFolder("a"))
-  # print([i.name for i in scandir("a")])
+  ScanFolder("a")
