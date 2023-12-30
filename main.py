@@ -3,6 +3,7 @@
 
 from random import randint
 import pngmatrix
+import sys
 
 
 def random_color():
@@ -39,22 +40,34 @@ def findNiegbours(img, row, col):
   neighbors = [(row - 1, col), (row - 1, col - 1), (row, col - 1),
                (row + 1, col), (row, col + 1), (row + 1, col + 1),
                (row - 1, col + 1), (row + 1, col - 1)]
-  return [i for i in neighbors if 0 <= i[0] < w and 0 <= i[1] < h]
+  return [
+      i for i in neighbors
+      if 0 <= i[0] < w and 0 <= i[1] < h and img[i[0]][i[1]] == (0, 0, 0)
+  ]
 
 
 def fill_bucket(im, row, col, color):
   if im[row][col] != (0, 0, 0):
     return None
   else:
+    img[row][col] = color
     neighbors = findNiegbours(im, row, col)
+    print(neighbors)
     for pixel in neighbors:
+      print(pixel, ': ', img[pixel[0]][pixel[1]])
       if img[pixel[0]][pixel[1]] == (0, 0, 0):
+        fill_bucket(im, pixel[0], pixel[1], color)
         img[pixel[0]][pixel[1]] = color
-        findNiegbours(im, pixel[0], pixel[1])
     return None
 
 
 if __name__ == '__main__':
-  img = [[(0, 0, 0)] * 120 for _ in range(120)]
-  draw_random_squares(img, 20)
-  pngmatrix.save_png8(img, 'out1.png')
+  # img = [[(0, 0, 0)] * 120 for _ in range(120)]
+  # draw_random_squares(img, 20)
+  # pngmatrix.save_png8(img, 'out2.png')
+  # sys.setrecursionlimit(10000)
+  # img_filled = pngmatrix.load_png8('out1_filled.png')
+  # pngmatrix.save_png8(img_filled, 'out1.png')
+  img = pngmatrix.load_png8('out2.png')
+  fill_bucket(img, 10, 10, (25, 100, 62))
+  pngmatrix.save_png8(img, 'out2_filled.png')
