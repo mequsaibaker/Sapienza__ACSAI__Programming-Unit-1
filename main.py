@@ -34,8 +34,19 @@ def draw_random_squares(im, n):
 # behaviour similar to the "Fill bucket" of paint.
 
 
+def findNiegbours(img, row, col):
+  w, h = len(img[0]), len(img)
+  neighbors = [(row - 1, col), (row - 1, col - 1), (row, col - 1),
+               (row + 1, col), (row, col + 1), (row + 1, col + 1),
+               (row - 1, col + 1), (row + 1, col - 1)]
+  return [i for i in neighbors if 0 <= i[0] < w and 0 <= i[1] < h]
+
+
 def fill_bucket(im, row, col, color):
-  pass
+  if im[row][col] != (0, 0, 0):
+    return None
+  else:
+    neighbors = findNiegbours(im, row, col)
 
 
 if __name__ == '__main__':
