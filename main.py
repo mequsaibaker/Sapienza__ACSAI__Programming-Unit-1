@@ -47,6 +47,11 @@ def fill_bucket(im, row, col, color):
     return None
   else:
     neighbors = findNiegbours(im, row, col)
+    for pixel in neighbors:
+      if img[pixel[0]][pixel[1]] == (0, 0, 0):
+        img[pixel[0]][pixel[1]] = color
+        findNiegbours(im, pixel[0], pixel[1])
+    return None
 
 
 if __name__ == '__main__':
