@@ -2,6 +2,7 @@
 # image. Squares are empty
 
 from random import randint
+import pngmatrix
 
 
 def random_color():
@@ -35,3 +36,8 @@ def draw_random_squares(im, n):
 
 def fill_bucket(im, row, col, color):
   pass
+
+
+if __name__ == '__main__':
+  img = [[(0, 0, 0)] * 64 for _ in range(64)]
+  draw_random_squares(img, 5)
