@@ -29,7 +29,13 @@ def pre_visit(T):  #(print, left, right)
 
 def in_visit(T):
   # your code goes here
-  pass
+  result_list = []
+  if T.left != None:
+    result_list += in_visit(T.left)
+  result_list.append(T.value)
+  if T.right != None:
+    result_list += in_visit(T.right)
+  return result_list
 
 
 def post_visit(T):
@@ -47,3 +53,4 @@ if __name__ == "__main__":
   tree = BinTree.fromList(treelist)
   # print(tree)
   print(pre_visit(tree))
+  print(in_visit(tree))
