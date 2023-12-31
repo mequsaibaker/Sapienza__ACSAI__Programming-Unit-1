@@ -18,12 +18,13 @@ post-visit = ["d", "g", "e", "b", "f", "c", "a"]
 
 def pre_visit(T):  #(print, left, right)
   # your code goes here
-  print(T.value)
+  result_list = []
+  result_list.append(T.value)
   if T.left != None:
-    pre_visit(T.left)
+    result_list += pre_visit(T.left)
   if T.right != None:
-    pre_visit(T.right)
-  pass
+    result_list += pre_visit(T.right)
+  return result_list
 
 
 def in_visit(T):
@@ -45,4 +46,4 @@ if __name__ == "__main__":
   ]
   tree = BinTree.fromList(treelist)
   # print(tree)
-  pre_visit(tree)
+  print(pre_visit(tree))
