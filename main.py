@@ -40,7 +40,13 @@ def in_visit(T):
 
 def post_visit(T):
   # your code goes here
-  pass
+  result_list = []
+  if T.left != None:
+    result_list += post_visit(T.left)
+  if T.right != None:
+    result_list += post_visit(T.right)
+  result_list.append(T.value)
+  return result_list
 
 
 from bintree import BinTree
@@ -54,3 +60,4 @@ if __name__ == "__main__":
   # print(tree)
   print(pre_visit(tree))
   print(in_visit(tree))
+  print(post_visit(tree))
