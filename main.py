@@ -57,7 +57,7 @@ if __name__ == "__main__":
       ["c", ["f", None, None], None]
   ]
   tree = BinTree.fromList(treelist)
-  # print(tree)
+  print(tree)
   print(pre_visit(tree))
   print(in_visit(tree))
   print(post_visit(tree))
