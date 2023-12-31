@@ -18,7 +18,7 @@ post-visit = ["d", "g", "e", "b", "f", "c", "a"]
 
 def pre_visit(T):  #(print, left, right)
   # your code goes here
-  print(T)
+  print(T.value)
   if T.left != None:
     pre_visit(T.left)
   if T.right != None:
